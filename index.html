@@ -11,14 +11,18 @@
             text-align: center;
             background: linear-gradient(to right, #ff758c, #ff7eb3);
             color: white;
-            padding: 50px;
+            padding: 30px 20px;
             margin: 0;
-            overflow: hidden; 
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+
+            /* REMOVE these */
+            /* overflow: hidden; */
+            /* height: 100vh; */
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: center; */
+
+            /* ADD this instead */
+            overflow-y: auto;
         }
 
         .floating-img {
@@ -29,6 +33,35 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             z-index: -1; 
             opacity: 0.8;
+        }
+
+        .card {
+            background: rgba(0,0,0,0.4);
+            padding: 25px;
+            border-radius: 20px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+
+            margin-top: 40px; /* pushes content up visually */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .card {
+                padding: 20px;
+                width: 90%;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
         }
 
         @keyframes moveAround {
