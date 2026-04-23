@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camila’s Birthday 🎉</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden; 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .floating-img {
+            position: absolute;
+            width: 120px; 
+            border-radius: 15px;
+            border: 5px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: -1; 
+            opacity: 0.8;
+        }
+
+        @keyframes moveAround {
+            0%   { transform: translate(0, 0) rotate(0deg); }
+            25%  { transform: translate(60px, 110px) rotate(12deg); }
+            50%  { transform: translate(-110px, 220px) rotate(-12deg); }
+            75%  { transform: translate(110px, -60px) rotate(6deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        /* Positions for your images */
+        .img1 { top: 5%; left: 5%; animation: moveAround 20s infinite linear; }
+        .img2 { top: 65%; left: 10%; animation: moveAround 25s infinite linear reverse; }
+        .img3 { top: 15%; left: 80%; animation: moveAround 18s infinite linear; }
+        .img4 { top: 70%; left: 85%; animation: moveAround 22s infinite linear reverse; }
+        .img5 { top: 40%; left: 5%; animation: moveAround 30s infinite linear; }
+        .img6 { top: 10%; left: 45%; animation: moveAround 28s infinite linear reverse; }
+        .img7 { top: 80%; left: 40%; animation: moveAround 24s infinite linear; }
+        .img8 { top: 45%; left: 75%; animation: moveAround 26s infinite linear reverse; }
+        .img9 { top: 23%; left: 67%; animation: moveAround 21s infinite linear reverse; }
+
+        .card {
+            background: rgba(0,0,0,0.4);
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 { font-size: 40px; margin-bottom: 10px; }
+        .btn {
+            background: #fff;
+            color: #ff4d6d;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #ffd6e0; transform: scale(1.05); }
+        .lang-btn {
+            margin: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.8);
+            color: #ff4d6d;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="images/Screenshot 2026-04-22 112841.jpg" class="floating-img img1" alt="Memory 1">
+    <img src="images/Screenshot 2026-04-22 112913.jpg" class="floating-img img2" alt="Memory 2">
+    <img src="images/Screenshot 2026-04-22 112939.jpg" class="floating-img img3" alt="Memory 3">
+    <img src="images/Screenshot 2026-04-22 113001.jpg" class="floating-img img4" alt="Memory 4">
+    <img src="images/Screenshot 2026-04-22 113022.jpg" class="floating-img img5" alt="Memory 5">
+    
+    <img src="images/extra1.jpg" class="floating-img img6" alt="Memory 6">
+    <img src="images/extra2.jpg" class="floating-img img7" alt="Memory 7">
+    <img src="images/extra3.jpg" class="floating-img img8" alt="Memory 8">
+    <img src="images/extra4.jpg" class="floating-img img8" alt="Memory 9">
+
+    <div>
+        <button class="lang-btn" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn" onclick="setLanguage('es')">Español</button>
+    </div>
+
+    <div class="card">
+        <h1 id="title">🎉 Camila’s Birthday 🎂</h1>
+        <p id="invite">You’re invited to celebrate! 🥳</p>
+
+        <p><strong id="dateLabel">📅 Date:</strong> <span id="date">Mayo - 16 </span></p>
+        <p><strong id="timeLabel">⏰ Time:</strong> <span id="time"> 2 pm </span></p>
+        <p><strong id="locationLabel">📍 Location:</strong> <span id="location">528 Roy st West Hempstead, NY 11552</span></p>
+        <p><strong>🤫 IMPORTANTE : </strong> <span>Es una sorpresa </span></p>
+
+        <a id="rsvpBtn" class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSe7ZLLBL9NwdHW-raEJA343eH0FPAvaKUg85hdz8ra2aTOKMw/viewform?usp=header" target="_blank">
+            RSVP Now
+        </a>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            const isEs = lang === 'es';
+            document.getElementById("title").innerText = isEs ? "🎉 Cumpleaños de Camila 🎂" : "🎉 Camila’s Birthday 🎂";
+            document.getElementById("invite").innerText = isEs ? "¡Estás invitado a celebrar! 🥳" : "You’re invited to celebrate! 🥳";
+            document.getElementById("dateLabel").innerText = isEs ? "📅 Fecha:" : "📅 Date:";
+            document.getElementById("timeLabel").innerText = isEs ? "⏰ Hora:" : "⏰ Time:";
+            document.getElementById("locationLabel").innerText = isEs ? "📍 Lugar:" : "📍 Location:";
+            document.getElementById("rsvpBtn").innerText = isEs ? "Confirmar Asistencia" : "RSVP Now";
+        }
+    </script>
+
+</body>
+</html>
+
